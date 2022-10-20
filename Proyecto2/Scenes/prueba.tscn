@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/hit_prueba.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.75, 24 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.1555
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Area2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 106, 114 )
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 259, -29 )
+shape = SubResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4, -9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 494, 212 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 235, 228 )
+texture = ExtResource( 1 )
+
+[editable path="Area2D"]
